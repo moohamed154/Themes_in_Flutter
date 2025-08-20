@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:themes/app/cubit/app_cubit.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,11 +12,26 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(onPressed: () {}, child: Text('Light Mode')),
+            ElevatedButton(
+              onPressed: () {
+                AppCubit.get(context).selectTheme(ThemeModeState.light);
+              },
+              child: Text('Light Mode'),
+            ),
             SizedBox(height: 20),
-            ElevatedButton(onPressed: () {}, child: Text('Dark Mode')),
+            ElevatedButton(
+              onPressed: () {
+                AppCubit.get(context).selectTheme(ThemeModeState.dark);
+              },
+              child: Text('Dark Mode'),
+            ),
             SizedBox(height: 20),
-            ElevatedButton(onPressed: () {}, child: Text('System Default')),
+            ElevatedButton(
+              onPressed: () {
+                AppCubit.get(context).selectTheme(ThemeModeState.system);
+              },
+              child: Text('System Default'),
+            ),
           ],
         ),
       ),

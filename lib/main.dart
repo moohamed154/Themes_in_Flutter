@@ -20,7 +20,11 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               scaffoldBackgroundColor: Colors.white,
-              appBarTheme: AppBarTheme(backgroundColor: Colors.amber),
+              appBarTheme: AppBarTheme(
+                backgroundColor: Colors.amber,
+                titleTextStyle: TextStyle(color: Colors.black),
+                iconTheme: IconThemeData(color: Colors.black),
+              ),
             ),
             darkTheme: ThemeData(
               scaffoldBackgroundColor: Colors.black,
@@ -30,7 +34,7 @@ class MyApp extends StatelessWidget {
                 iconTheme: IconThemeData(color: Colors.white),
               ),
             ),
-            themeMode: ThemeMode.dark,
+            themeMode: AppCubit.get(context).getTheme(),
             home: HomeScreen(),
           );
         },
