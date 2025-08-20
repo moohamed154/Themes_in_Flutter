@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:themes/app/cubit/app_cubit.dart';
 import 'package:themes/screens/home_screen.dart';
+import 'package:themes/cache/cache_helper.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize CacheHelper before running the app
+  await CacheHelper().init();
+
   runApp(const MyApp());
 }
 
